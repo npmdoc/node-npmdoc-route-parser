@@ -1,0 +1,840 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://github.com/rcs/route-parser">route-parser (v0.0.5)</a>
+</h1>
+<h4>A isomorphic, bullet-proof, ninja-ready route parsing, matching, and reversing library for Javascript in Node and the browser. </h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.route-parser">module route-parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.route-parser">
+            function <span class="apidocSignatureSpan"></span>route-parser
+            <span class="apidocSignatureSpan">(spec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.route">
+            function <span class="apidocSignatureSpan">route-parser.</span>route
+            <span class="apidocSignatureSpan">(spec)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.</span>compiled_grammar</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.</span>nodes</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.</span>reconstruct</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.</span>regexp</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.</span>reverse</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.</span>route.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.route-parser.compiled_grammar">module route-parser.compiled_grammar</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.compiled_grammar.Parser">
+            function <span class="apidocSignatureSpan">route-parser.compiled_grammar.</span>Parser
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.compiled_grammar.parse">
+            function <span class="apidocSignatureSpan">route-parser.compiled_grammar.</span>parse
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.compiled_grammar.</span>parser</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.route-parser.nodes">module route-parser.nodes</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.nodes.Concat">
+            function <span class="apidocSignatureSpan">route-parser.nodes.</span>Concat
+            <span class="apidocSignatureSpan">(props, children)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.nodes.Literal">
+            function <span class="apidocSignatureSpan">route-parser.nodes.</span>Literal
+            <span class="apidocSignatureSpan">(props, children)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.nodes.Optional">
+            function <span class="apidocSignatureSpan">route-parser.nodes.</span>Optional
+            <span class="apidocSignatureSpan">(props, children)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.nodes.Param">
+            function <span class="apidocSignatureSpan">route-parser.nodes.</span>Param
+            <span class="apidocSignatureSpan">(props, children)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.nodes.Root">
+            function <span class="apidocSignatureSpan">route-parser.nodes.</span>Root
+            <span class="apidocSignatureSpan">(props, children)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.nodes.Splat">
+            function <span class="apidocSignatureSpan">route-parser.nodes.</span>Splat
+            <span class="apidocSignatureSpan">(props, children)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.route-parser.reconstruct">module route-parser.reconstruct</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.reconstruct.visit">
+            function <span class="apidocSignatureSpan">route-parser.reconstruct.</span>visit
+            <span class="apidocSignatureSpan">(node, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.reconstruct.</span>handlers</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.route-parser.regexp">module route-parser.regexp</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.regexp.visit">
+            function <span class="apidocSignatureSpan">route-parser.regexp.</span>visit
+            <span class="apidocSignatureSpan">(node, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.regexp.</span>handlers</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.route-parser.reverse">module route-parser.reverse</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.reverse.visit">
+            function <span class="apidocSignatureSpan">route-parser.reverse.</span>visit
+            <span class="apidocSignatureSpan">(node, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">route-parser.reverse.</span>handlers</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.route-parser.route">module route-parser.route</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.route.route">
+            function <span class="apidocSignatureSpan">route-parser.</span>route
+            <span class="apidocSignatureSpan">(spec)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.route-parser.route.prototype">module route-parser.route.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.route.prototype.match">
+            function <span class="apidocSignatureSpan">route-parser.route.prototype.</span>match
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.route-parser.route.prototype.reverse">
+            function <span class="apidocSignatureSpan">route-parser.route.prototype.</span>reverse
+            <span class="apidocSignatureSpan">(params)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.route-parser" id="apidoc.module.route-parser">module route-parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.route-parser" id="apidoc.element.route-parser.route-parser">
+        function <span class="apidocSignatureSpan"></span>route-parser
+        <span class="apidocSignatureSpan">(spec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Route(spec) {
+  var route;
+  if (this) {
+    // constructor called with new
+    route = this;
+  } else {
+    // constructor called as a function
+    route = Object.create(Route.prototype);
+  }
+  if( typeof spec === 'undefined' ) {
+    throw new Error('A route spec is required');
+  }
+  route.spec = spec;
+  route.ast = Parser.parse(spec);
+  return route;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.route" id="apidoc.element.route-parser.route">
+        function <span class="apidocSignatureSpan">route-parser.</span>route
+        <span class="apidocSignatureSpan">(spec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Route(spec) {
+  var route;
+  if (this) {
+    // constructor called with new
+    route = this;
+  } else {
+    // constructor called as a function
+    route = Object.create(Route.prototype);
+  }
+  if( typeof spec === 'undefined' ) {
+    throw new Error('A route spec is required');
+  }
+  route.spec = spec;
+  route.ast = Parser.parse(spec);
+  return route;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.route-parser.compiled_grammar" id="apidoc.module.route-parser.compiled_grammar">module route-parser.compiled_grammar</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.compiled_grammar.Parser" id="apidoc.element.route-parser.compiled_grammar.Parser">
+        function <span class="apidocSignatureSpan">route-parser.compiled_grammar.</span>Parser
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser() {
+  this.yy = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.compiled_grammar.parse" id="apidoc.element.route-parser.compiled_grammar.parse">
+        function <span class="apidocSignatureSpan">route-parser.compiled_grammar.</span>parse
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function () { return parser.parse.apply(parser, arguments); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.route-parser.nodes" id="apidoc.module.route-parser.nodes">module route-parser.nodes</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.nodes.Concat" id="apidoc.element.route-parser.nodes.Concat">
+        function <span class="apidocSignatureSpan">route-parser.nodes.</span>Concat
+        <span class="apidocSignatureSpan">(props, children)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Concat = function (props, children) {
+  return {
+    displayName: displayName,
+    props: props,
+    children: children || []
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case 1:
+return new yy.Root({},[$$[$0-1]])
+break;
+case 2:
+return new yy.Root({},[new yy.Literal({value: ''})])
+break;
+case 3:
+this.$ = new yy.<span class="apidocCodeKeywordSpan">Concat</span>({},[$$[$0-1],$$[$0]]);
+break;
+case 4: case 5:
+this.$ = $$[$0];
+break;
+case 6:
+this.$ = new yy.Literal({value: $$[$0]});
+break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.nodes.Literal" id="apidoc.element.route-parser.nodes.Literal">
+        function <span class="apidocSignatureSpan">route-parser.nodes.</span>Literal
+        <span class="apidocSignatureSpan">(props, children)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Literal = function (props, children) {
+  return {
+    displayName: displayName,
+    props: props,
+    children: children || []
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var $0 = $$.length - 1;
+switch (yystate) {
+case 1:
+return new yy.Root({},[$$[$0-1]])
+break;
+case 2:
+return new yy.Root({},[new yy.<span class="apidocCodeKeywordSpan">Literal</span>({value: ''})])
+break;
+case 3:
+this.$ = new yy.Concat({},[$$[$0-1],$$[$0]]);
+break;
+case 4: case 5:
+this.$ = $$[$0];
+break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.nodes.Optional" id="apidoc.element.route-parser.nodes.Optional">
+        function <span class="apidocSignatureSpan">route-parser.nodes.</span>Optional
+        <span class="apidocSignatureSpan">(props, children)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Optional = function (props, children) {
+  return {
+    displayName: displayName,
+    props: props,
+    children: children || []
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case 7:
+this.$ = new yy.Splat({name: $$[$0]});
+break;
+case 8:
+this.$ = new yy.Param({name: $$[$0]});
+break;
+case 9:
+this.$ = new yy.<span class="apidocCodeKeywordSpan">Optional</span>({},[$$[$0-1]]);
+break;
+case 10:
+this.$ = yytext;
+break;
+case 11: case 12:
+this.$ = yytext.slice(1);
+break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.nodes.Param" id="apidoc.element.route-parser.nodes.Param">
+        function <span class="apidocSignatureSpan">route-parser.nodes.</span>Param
+        <span class="apidocSignatureSpan">(props, children)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Param = function (props, children) {
+  return {
+    displayName: displayName,
+    props: props,
+    children: children || []
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case 6:
+this.$ = new yy.Literal({value: $$[$0]});
+break;
+case 7:
+this.$ = new yy.Splat({name: $$[$0]});
+break;
+case 8:
+this.$ = new yy.<span class="apidocCodeKeywordSpan">Param</span>({name: $$[$0]});
+break;
+case 9:
+this.$ = new yy.Optional({},[$$[$0-1]]);
+break;
+case 10:
+this.$ = yytext;
+break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.nodes.Root" id="apidoc.element.route-parser.nodes.Root">
+        function <span class="apidocSignatureSpan">route-parser.nodes.</span>Root
+        <span class="apidocSignatureSpan">(props, children)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Root = function (props, children) {
+  return {
+    displayName: displayName,
+    props: props,
+    children: children || []
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+productions_: [0,[3,2],[3,1],[4,2],[4,1],[6,1],[6,1],[6,1],[6,1],[7,3],[8,1],[9,1],[10,1]],
+performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
+/* this == yyval */
+
+var $0 = $$.length - 1;
+switch (yystate) {
+case 1:
+return new yy.<span class="apidocCodeKeywordSpan">Root</span>({},[$$[$0-1]])
+break;
+case 2:
+return new yy.Root({},[new yy.Literal({value: ''})])
+break;
+case 3:
+this.$ = new yy.Concat({},[$$[$0-1],$$[$0]]);
+break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.nodes.Splat" id="apidoc.element.route-parser.nodes.Splat">
+        function <span class="apidocSignatureSpan">route-parser.nodes.</span>Splat
+        <span class="apidocSignatureSpan">(props, children)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Splat = function (props, children) {
+  return {
+    displayName: displayName,
+    props: props,
+    children: children || []
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+case 4: case 5:
+this.$ = $$[$0];
+break;
+case 6:
+this.$ = new yy.Literal({value: $$[$0]});
+break;
+case 7:
+this.$ = new yy.<span class="apidocCodeKeywordSpan">Splat</span>({name: $$[$0]});
+break;
+case 8:
+this.$ = new yy.Param({name: $$[$0]});
+break;
+case 9:
+this.$ = new yy.Optional({},[$$[$0-1]]);
+break;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.route-parser.reconstruct" id="apidoc.module.route-parser.reconstruct">module route-parser.reconstruct</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.reconstruct.visit" id="apidoc.element.route-parser.reconstruct.visit">
+        function <span class="apidocSignatureSpan">route-parser.reconstruct.</span>visit
+        <span class="apidocSignatureSpan">(node, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visit = function (node, context) {
+  return this.handlers[node.displayName].call(this,node, context);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @class ReconstructVisitor
+ * @borrows Visitor-visit
+ */
+var ReconstructVisitor = createVisitor({
+'Concat': function(node) {
+  return node.children
+    .map( function(child) {
+      return this.<span class="apidocCodeKeywordSpan">visit</span>(child);
+    }.bind(this))
+    .join('');
+},
+
+'Literal': function(node) {
+  return node.props.value;
+},
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.route-parser.regexp" id="apidoc.module.route-parser.regexp">module route-parser.regexp</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.regexp.visit" id="apidoc.element.route-parser.regexp.visit">
+        function <span class="apidocSignatureSpan">route-parser.regexp.</span>visit
+        <span class="apidocSignatureSpan">(node, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visit = function (node, context) {
+  return this.handlers[node.displayName].call(this,node, context);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @class ReconstructVisitor
+ * @borrows Visitor-visit
+ */
+var ReconstructVisitor = createVisitor({
+'Concat': function(node) {
+  return node.children
+    .map( function(child) {
+      return this.<span class="apidocCodeKeywordSpan">visit</span>(child);
+    }.bind(this))
+    .join('');
+},
+
+'Literal': function(node) {
+  return node.props.value;
+},
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.route-parser.reverse" id="apidoc.module.route-parser.reverse">module route-parser.reverse</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.reverse.visit" id="apidoc.element.route-parser.reverse.visit">
+        function <span class="apidocSignatureSpan">route-parser.reverse.</span>visit
+        <span class="apidocSignatureSpan">(node, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visit = function (node, context) {
+  return this.handlers[node.displayName].call(this,node, context);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @class ReconstructVisitor
+ * @borrows Visitor-visit
+ */
+var ReconstructVisitor = createVisitor({
+'Concat': function(node) {
+  return node.children
+    .map( function(child) {
+      return this.<span class="apidocCodeKeywordSpan">visit</span>(child);
+    }.bind(this))
+    .join('');
+},
+
+'Literal': function(node) {
+  return node.props.value;
+},
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.route-parser.route" id="apidoc.module.route-parser.route">module route-parser.route</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.route.route" id="apidoc.element.route-parser.route.route">
+        function <span class="apidocSignatureSpan">route-parser.</span>route
+        <span class="apidocSignatureSpan">(spec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Route(spec) {
+  var route;
+  if (this) {
+    // constructor called with new
+    route = this;
+  } else {
+    // constructor called as a function
+    route = Object.create(Route.prototype);
+  }
+  if( typeof spec === 'undefined' ) {
+    throw new Error('A route spec is required');
+  }
+  route.spec = spec;
+  route.ast = Parser.parse(spec);
+  return route;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.route-parser.route.prototype" id="apidoc.module.route-parser.route.prototype">module route-parser.route.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.route.prototype.match" id="apidoc.element.route-parser.route.prototype.match">
+        function <span class="apidocSignatureSpan">route-parser.route.prototype.</span>match
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">match = function (path) {
+  var re = RegexpVisitor.visit(this.ast),
+      matched = re.match(path);
+
+  return matched ? matched : false;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## How do I use it?
+
+```javascript
+Route = require('route-parser');
+var route = new Route('/my/fancy/route/page/:page');
+route.<span class="apidocCodeKeywordSpan">match</span>('/my/fancy/route/page/7') // { page: 7 }
+route.reverse({page: 3}) // -&gt; '/my/fancy/route/page/3'
+```
+## What can I use in my routes?
+
+| Example         | Description          |
+| --------------- | -------- |
+| `:name`         |  a parameter to capture from the route up to `/`, `?`, or end of string  |
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.route-parser.route.prototype.reverse" id="apidoc.element.route-parser.route.prototype.reverse">
+        function <span class="apidocSignatureSpan">route-parser.route.prototype.</span>reverse
+        <span class="apidocSignatureSpan">(params)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reverse = function (params) {
+  return ReverseVisitor.visit(this.ast, params);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## How do I use it?
+
+```javascript
+Route = require('route-parser');
+var route = new Route('/my/fancy/route/page/:page');
+route.match('/my/fancy/route/page/7') // { page: 7 }
+route.<span class="apidocCodeKeywordSpan">reverse</span>({page: 3}) // -&gt; '/my/fancy/route/page/3'
+```
+## What can I use in my routes?
+
+| Example         | Description          |
+| --------------- | -------- |
+| `:name`         |  a parameter to capture from the route up to `/`, `?`, or end of string  |
+| `*splat`        |  a splat to capture from the route up to `?` or end of string |
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
