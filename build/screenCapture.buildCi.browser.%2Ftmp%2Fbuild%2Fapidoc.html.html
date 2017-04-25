@@ -377,7 +377,23 @@
     <li>description and source-code<pre class="apidocCodePre">function Parser() {
   this.yy = {};
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#!/usr/bin/env node
+var fs = require('fs');
+
+var jison = require('jison'),
+    Lexer = require('jison-lex'),
+    grammar = require('../lib/route/grammar.js'),
+    parser = new jison.<span class="apidocCodeKeywordSpan">Parser</span>(grammar);
+
+parser.lexer = new Lexer(grammar.lex, null, grammar.terminals_);
+
+var compiledGrammar = parser.generate({moduleType: 'js'});
+
+
+fs.writeFileSync(
+...</pre></li>
     </ul>
 
 
@@ -390,7 +406,20 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parse = function () { return parser.parse.apply(parser, arguments); }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    // constructor called as a function
+    route = Object.create(Route.prototype);
+  }
+  if( typeof spec === 'undefined' ) {
+    throw new Error('A route spec is required');
+  }
+  route.spec = spec;
+  route.ast = Parser.<span class="apidocCodeKeywordSpan">parse</span>(spec);
+  return route;
+}
+
+module.exports = Route;
+...</pre></li>
     </ul>
 
 
@@ -628,21 +657,21 @@ break;
   return this.handlers[node.displayName].call(this,node, context);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- * @class ReconstructVisitor
- * @borrows Visitor-visit
+ * var route = new Route('/:one/:two')
+ * route.match('/foo/bar/') // -&gt; {one: 'foo', two: 'bar'}
+ * @param  {string} path the path to match this route against
+ * @return {(Object.&lt;string,string&gt;|false)} A map of the matched route
+ * parameters, or false if matching failed
  */
-var ReconstructVisitor = createVisitor({
-'Concat': function(node) {
-  return node.children
-    .map( function(child) {
-      return this.<span class="apidocCodeKeywordSpan">visit</span>(child);
-    }.bind(this))
-    .join('');
-},
+Route.prototype.match = function(path) {
+  var re = RegexpVisitor.<span class="apidocCodeKeywordSpan">visit</span>(this.ast),
+      matched = re.match(path);
 
-'Literal': function(node) {
-  return node.props.value;
-},
+  return matched ? matched : false;
+
+};
+
+/**
 ...</pre></li>
     </ul>
 
@@ -666,21 +695,21 @@ var ReconstructVisitor = createVisitor({
   return this.handlers[node.displayName].call(this,node, context);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- * @class ReconstructVisitor
- * @borrows Visitor-visit
+ * var route = new Route('/:one/:two')
+ * route.match('/foo/bar/') // -&gt; {one: 'foo', two: 'bar'}
+ * @param  {string} path the path to match this route against
+ * @return {(Object.&lt;string,string&gt;|false)} A map of the matched route
+ * parameters, or false if matching failed
  */
-var ReconstructVisitor = createVisitor({
-'Concat': function(node) {
-  return node.children
-    .map( function(child) {
-      return this.<span class="apidocCodeKeywordSpan">visit</span>(child);
-    }.bind(this))
-    .join('');
-},
+Route.prototype.match = function(path) {
+  var re = RegexpVisitor.<span class="apidocCodeKeywordSpan">visit</span>(this.ast),
+      matched = re.match(path);
 
-'Literal': function(node) {
-  return node.props.value;
-},
+  return matched ? matched : false;
+
+};
+
+/**
 ...</pre></li>
     </ul>
 
@@ -704,21 +733,21 @@ var ReconstructVisitor = createVisitor({
   return this.handlers[node.displayName].call(this,node, context);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- * @class ReconstructVisitor
- * @borrows Visitor-visit
+ * var route = new Route('/:one/:two')
+ * route.match('/foo/bar/') // -&gt; {one: 'foo', two: 'bar'}
+ * @param  {string} path the path to match this route against
+ * @return {(Object.&lt;string,string&gt;|false)} A map of the matched route
+ * parameters, or false if matching failed
  */
-var ReconstructVisitor = createVisitor({
-'Concat': function(node) {
-  return node.children
-    .map( function(child) {
-      return this.<span class="apidocCodeKeywordSpan">visit</span>(child);
-    }.bind(this))
-    .join('');
-},
+Route.prototype.match = function(path) {
+  var re = RegexpVisitor.<span class="apidocCodeKeywordSpan">visit</span>(this.ast),
+      matched = re.match(path);
 
-'Literal': function(node) {
-  return node.props.value;
-},
+  return matched ? matched : false;
+
+};
+
+/**
 ...</pre></li>
     </ul>
 
