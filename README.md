@@ -1,6 +1,6 @@
 # npmdoc-route-parser
 
-#### api documentation for  [route-parser (v0.0.5)](http://github.com/rcs/route-parser)  [![npm package](https://img.shields.io/npm/v/npmdoc-route-parser.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-route-parser) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-route-parser.svg)](https://travis-ci.org/npmdoc/node-npmdoc-route-parser)
+#### basic api documentation for  [route-parser (v0.0.5)](http://github.com/rcs/route-parser)  [![npm package](https://img.shields.io/npm/v/npmdoc-route-parser.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-route-parser) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-route-parser.svg)](https://travis-ci.org/npmdoc/node-npmdoc-route-parser)
 
 #### A isomorphic, bullet-proof, ninja-ready route parsing, matching, and reversing library for Javascript in Node and the browser.
 
